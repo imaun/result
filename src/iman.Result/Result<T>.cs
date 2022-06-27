@@ -57,6 +57,11 @@ namespace iman.Result
 
         #endregion
 
+        public void ThrowIfHasError(Exception exception)
+        {
+            if (HasError)
+                throw exception;
+        }
 
         public static Result<T> Ok(T value)
         {
