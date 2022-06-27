@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace iman.Result
@@ -7,10 +8,16 @@ namespace iman.Result
         ResultStatus Status { get; }
         
         IEnumerable<string> Errors { get; }
+        
+        Exception Exception { get; }
+        
+        string Message { get; }
     }
 
     public interface IResult<T> : IResult
     {
         T Value { get; }
+        
+        
     }
 }

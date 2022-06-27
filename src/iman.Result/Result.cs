@@ -15,7 +15,7 @@ namespace iman.Result
 
         public static Result Error() => new Result(ResultStatus.Error);
 
-        public static Result Error(params string[] errors)
+        public new static Result Error(params string[] errors)
             => new Result(ResultStatus.Error) { Errors = errors };
 
         public new static Result NotFound() => new Result(ResultStatus.NotFound);

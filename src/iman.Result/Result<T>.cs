@@ -53,6 +53,8 @@ namespace iman.Result
 
         public IEnumerable<string> Errors { get; protected set; } = new List<string>();
         
+        public Exception Exception { get; protected set; }
+        
         public string Message { get; protected set; }
 
         #endregion
@@ -60,7 +62,10 @@ namespace iman.Result
         public void ThrowIfHasError(Exception exception)
         {
             if (HasError)
+            {
+                Exception = exception;
                 throw exception;
+            }
         }
 
         public static Result<T> Ok(T value)
@@ -76,6 +81,11 @@ namespace iman.Result
         public static Result<T> Error(params string[] errors)
         {
             return new Result<T>(ResultStatus.Error) { Errors = errors };
+        }
+
+        public static Result<T> Error(Exception exception)
+        {
+            return new Result<T>() { Exception = exception };
         }
 
         public static Result<T> NotFound()
