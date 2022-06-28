@@ -1,6 +1,6 @@
 using System;
 
-namespace iman.Result
+namespace iman.Library.Results
 {
     public class Result : Result<Result>
     {

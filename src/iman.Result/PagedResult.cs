@@ -1,4 +1,4 @@
-namespace iman.Result
+namespace iman.Library.Results
 {
     public class PagedResult<T> : Result<T>
     {

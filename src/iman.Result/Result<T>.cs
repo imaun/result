@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace iman.Result
+namespace iman.Library.Results
 {
     /// <summary>
     /// Result class to represents response of a Domain logic, service, handler, query, etc..

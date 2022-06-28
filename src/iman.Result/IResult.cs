@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace iman.Result
+namespace iman.Library.Results
 {
     public interface IResult
     {

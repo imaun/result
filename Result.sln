@@ -2,6 +2,12 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iman.Result", "src\iman.Result\iman.Result.csproj", "{89328F8E-3C20-403A-B11D-CB315B393573}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C7B01E4D-6E8D-47C9-A1EC-B859BF24B5DC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{A9B3E3C2-600A-48EF-8793-8781FBD61E3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iman.Result.Tests", "test\iman.Result.Tests\iman.Result.Tests.csproj", "{A609B3FF-05B3-4F16-8B36-6ACB40AA3858}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +18,13 @@ Global
 		{89328F8E-3C20-403A-B11D-CB315B393573}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89328F8E-3C20-403A-B11D-CB315B393573}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89328F8E-3C20-403A-B11D-CB315B393573}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A609B3FF-05B3-4F16-8B36-6ACB40AA3858}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A609B3FF-05B3-4F16-8B36-6ACB40AA3858}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A609B3FF-05B3-4F16-8B36-6ACB40AA3858}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A609B3FF-05B3-4F16-8B36-6ACB40AA3858}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{89328F8E-3C20-403A-B11D-CB315B393573} = {C7B01E4D-6E8D-47C9-A1EC-B859BF24B5DC}
+		{A609B3FF-05B3-4F16-8B36-6ACB40AA3858} = {A9B3E3C2-600A-48EF-8793-8781FBD61E3C}
 	EndGlobalSection
 EndGlobal
