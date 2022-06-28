@@ -1,13 +1,44 @@
 using System;
+using System.Collections.Generic;
 
 namespace iman.Library.Results
 {
-    public class Result : Result<Result>
+    public class Result : IResult
     {
+
+        protected Result()
+        {
+            Status = ResultStatus.Ok;
+        }
+
+        protected Result(ResultStatus status)
+        {
+            Status = status;
+        }
+
+        protected Result(string message)
+        {
+            Status = ResultStatus.Ok;
+            Message = message;
+        }
+
+        #region Properties
+
+        public ResultStatus Status { get; protected set; } = ResultStatus.Ok;
+
+        public bool IsSuccess => Status == ResultStatus.Ok;
+
+        public bool HasError => Status == ResultStatus.Error;
+
+        public bool IsInvalid => Status == ResultStatus.Invalid;
+
+        public IEnumerable<string> Errors { get; protected set; } = new List<string>();
         
-        public Result(): base() { }
+        public Exception Exception { get; protected set; }
         
-        public Result(ResultStatus status): base(status) { }
+        public string Message { get; protected set; }
+
+        #endregion
         
         public static Result Ok() => new Result();
 

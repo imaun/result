@@ -7,11 +7,13 @@ namespace iman.Library.Results
     /// Result class to represents response of a Domain logic, service, handler, query, etc..
     /// </summary>
     /// <typeparam name="T">type of <see cref="Value"/> that is important to the caller function.</typeparam>
-    public class Result<T> : IResult<T>
+    public class Result<T> : Result, IResult<T>
     {
-        protected Result() { }
+        protected Result(): base() { }
 
-        protected Result(T value)
+        protected Result(string message): base(message) { }
+        
+        protected Result(T value): base()
         {
             Value = value;
         }
@@ -43,19 +45,7 @@ namespace iman.Library.Results
         
         public Type ValueType { get; private set; }
 
-        public ResultStatus Status { get; protected set; } = ResultStatus.Ok;
-
-        public bool IsSuccess => Status == ResultStatus.Ok;
-
-        public bool HasError => Status == ResultStatus.Error;
-
-        public bool IsInvalid => Status == ResultStatus.Invalid;
-
-        public IEnumerable<string> Errors { get; protected set; } = new List<string>();
         
-        public Exception Exception { get; protected set; }
-        
-        public string Message { get; protected set; }
 
         #endregion
 

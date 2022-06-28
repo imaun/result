@@ -11,8 +11,8 @@ namespace iman.Library.Results
         public long PageNumber { get; private set; }
         public long PageSize { get; private set; }
 
-        public long TotalPages => TotalRecords / PageSize;
-        public long TotalRecords { get; private set; }
+        public long TotalPages => TotalCount / PageSize;
+        public long TotalCount { get; private set; }
         
 
         public PagedResult<T> WithPageSize(long pageSize)
@@ -27,9 +27,9 @@ namespace iman.Library.Results
             return this;
         }
 
-        public PagedResult<T> WithTotalRecords(long totalRecords)
+        public PagedResult<T> WithTotalCount(long totalRecords)
         {
-            TotalRecords = totalRecords;
+            TotalCount = totalRecords;
             return this;
         }
         
