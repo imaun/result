@@ -52,12 +52,12 @@ namespace iman.Library.Results
             return new Result<T>(value, message);
         }
 
-        public static Result<T> Error(params string[] errors)
+        public new static Result<T> Error(params string[] errors)
         {
             return new Result<T>(ResultStatus.Error) { Errors = errors };
         }
 
-        public static Result<T> Error(Exception exception)
+        public new static Result<T> Error(Exception exception)
         {
             return new Result<T>() { Exception = exception };
         }

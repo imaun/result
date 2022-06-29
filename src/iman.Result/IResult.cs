@@ -9,6 +9,8 @@ namespace iman.Library.Results
         
         IEnumerable<string> Errors { get; }
         
+        ICollection<ValidationError> ValidationErrors { get; }
+
         Exception Exception { get; }
         
         string Message { get; }
@@ -16,6 +18,8 @@ namespace iman.Library.Results
         bool HasError { get; }
         
         bool IsInvalid { get; }
+        
+        bool IsValid { get; }
         
         bool IsSuccess { get; }
     }
