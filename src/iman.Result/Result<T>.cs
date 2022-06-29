@@ -44,20 +44,9 @@ namespace iman.Library.Results
         public T Value { get; private set; }
         
         public Type ValueType { get; private set; }
-
         
-
         #endregion
-
-        public void ThrowIfHasError(Exception exception)
-        {
-            if (HasError)
-            {
-                Exception = exception;
-                throw exception;
-            }
-        }
-
+        
         public static Result<T> Ok(T value)
         {
             return new Result<T>(value);
@@ -76,16 +65,6 @@ namespace iman.Library.Results
         public static Result<T> Error(Exception exception)
         {
             return new Result<T>() { Exception = exception };
-        }
-
-        public static Result<T> NotFound()
-        {
-            return new Result<T>(ResultStatus.NotFound);
-        }
-
-        public static Result<T> Unauthorized()
-        {
-            return new Result<T>(ResultStatus.Unauthorized);
         }
         
     }

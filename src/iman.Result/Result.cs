@@ -16,6 +16,12 @@ namespace iman.Library.Results
             Status = status;
         }
 
+        protected Result(ResultStatus status, string message)
+        {
+            Status = status;
+            Message = message;
+        }
+
         protected Result(string message)
         {
             Status = ResultStatus.Ok;
@@ -39,7 +45,24 @@ namespace iman.Library.Results
         public string Message { get; protected set; }
 
         #endregion
+
+        #region Methods
+
+        public void ThrowIfHasError(Exception exception)
+        {
+            if (HasError)
+            {
+                Exception = exception;
+                throw exception;
+            }
+        }
         
+        
+
+        #endregion
+
+        #region Static Factories
+
         public static Result Ok() => new Result();
 
         public static Result Ok(string message) => new Result() { Message = message };
@@ -50,6 +73,12 @@ namespace iman.Library.Results
             => new Result(ResultStatus.Error) { Errors = errors };
 
         public new static Result NotFound() => new Result(ResultStatus.NotFound);
-        
+
+        public static Result Unauthorized() => new Result(ResultStatus.Unauthorized);
+
+        #endregion
+
+
+
     }
 }
