@@ -18,23 +18,18 @@ namespace iman.Library.Results
             Value = value;
         }
 
-        protected internal Result(ResultStatus status)
-        {
-            Status = status;
-        }
-
-        protected internal Result(T value, string message)
+        protected internal Result(ResultStatus status): base(status) { }
+        
+        protected internal Result(ResultStatus status, T value) : base(status)
         {
             Value = value;
-            Message = message;
         }
 
-        protected internal Result(ResultStatus status, string message)
+        protected internal Result(T value, string message) : base(message)
         {
-            Status = status;
-            Message = message;
+            Value = value;
         }
-        
+
         public static implicit operator T(Result<T> result) => result.Value;
         
         public static implicit operator Result<T>(T value) => new Result<T>(value);

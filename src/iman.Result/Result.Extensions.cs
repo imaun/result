@@ -18,6 +18,20 @@ namespace iman.Library.Results
                 .WithTotalCount(totalCount);
         }
 
+        public static IResult Then(this IResult result, Action action)
+        {
+            if (result.IsSuccess) action();
+            return result;
+        }
+
+        public static IResult<T> Then<T>(this IResult<T> result, Action<T> action)
+        {
+            if (result.IsSuccess)
+                action(result.Value);
+
+            return result;
+        }
+
         public static IResult<T> Ensure<T>(this IResult<T> result, Func<T, bool> predicate)
         {
             if (result.HasError) return result;
@@ -26,5 +40,12 @@ namespace iman.Library.Results
                 ? Result<T>.Ok(result.Value)
                 : Result<T>.Error(Array.Empty<string>());
         }
+
+        public static T Finally<T>(this IResult result, Func<IResult, T> func)
+        {
+            return func(result);
+        }
+        
+        
     }
 }
