@@ -127,8 +127,6 @@ namespace iman.Library.Results
         public static Result Unauthorized() => new Result(ResultStatus.Unauthorized);
 
         #endregion
-
-
-
+        
     }
 }
